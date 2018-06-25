@@ -46,7 +46,7 @@ std::string LinuxSecretStore::get_secret(const std::string &alias) {
   // Get list of items in the collection and unlock them (unlock might prompt
   // for the password).
   ScopedGList items(secret_collection_get_items(this->sc));
-  GList *locked_items;
+  GList *locked_items = nullptr;
   ScopedGList scoped_locked_items(locked_items);
   // int locked_items_len =
   (void)secret_service_unlock_sync(this->ss.get(), items.get(),
