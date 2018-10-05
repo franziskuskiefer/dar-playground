@@ -5,5 +5,11 @@ linux:
 windows:
 	cl.exe windows.cc Advapi32.lib
 
+dpapi:
+	cl.exe dpapi.c
+
+win_auth:
+	cl.exe win_auth.cc Advapi32.lib Credui.lib Secur32.lib
+
 clean:
-	rm -rf gnome windows.exe windows.obj
+	rm -rf gnome windows.exe windows.obj dpapi.exe dpapi.obj win_auth.exe win_auth.obj
